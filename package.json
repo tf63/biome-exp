@@ -7,12 +7,13 @@
         "dev": "vite",
         "build": "tsc -b && vite build",
         "lint": "biome lint --write .",
-        "format": "biome format . --write",
+        "format": "biome format . --write .",
         "check": "biome check --write .",
         "preview": "vite preview",
         "generate": "plop",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "prepare": "husky"
     },
     "dependencies": {
         "clsx": "^2.1.1",
@@ -36,6 +37,8 @@
         "@types/react-dom": "^18.3.0",
         "@vitejs/plugin-react-swc": "^3.7.0",
         "autoprefixer": "^10.4.19",
+        "husky": "^9.1.1",
+        "lint-staged": "^15.2.7",
         "plop": "^4.0.1",
         "postcss": "^8.4.39",
         "storybook": "^8.2.5",
@@ -47,7 +50,7 @@
         "node": "20.11.0"
     },
     "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195",
-    "eslintConfig": {
-        "extends": ["plugin:storybook/recommended"]
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx,json,md}": ["biome format --write ."]
     }
 }
